@@ -1,3 +1,4 @@
+# Introduction Lab
 .data 
     # Label: is simply a name that represents a memory address, when we declare a label
     # we are giving a name to a specific location in memory where data is stored
