@@ -40,7 +40,7 @@ fib_iterative:
         j for
 
     end_for:
-        move $v0, $t3
+        move $v0, $t3 # Return
 
 end_fib_iterative:
     jr $ra
@@ -65,7 +65,7 @@ fib:
 
     addi $a0, $a0, -1
     jal fib
-    sw $v0, 8($sp)
+    sw $v0, 8($sp) # fib(n-1)
 
     addi $a0, $a0, -1
     jal fib
@@ -73,8 +73,8 @@ fib:
 
     lw   $a0, 0($sp)
     lw   $t0, 4($sp)
-    lw   $t2, 8($sp) # fib(n-1)
-    addi $sp, $sp, 12      
+    lw   $t2, 8($sp) # fib(n-1) 
+    addi $sp, $sp, 12 # Reclaim stack storage     
 
     add $t2, $t2, $t3 # fib(n-1) + fib(n-2)
     sw $t2, 0($t0)
