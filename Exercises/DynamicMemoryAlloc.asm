@@ -126,11 +126,13 @@ main:
         la $a0, AvgMsg
         syscall
 
-        div $t2, $s0
-        mflo $t2
-
-        li $v0, 1
-        move $a0, $t2
+        mtc1 $t2, $f0
+        mtc1 $s0, $f1
+        cvt.s.w $f0, $f0
+        cvt.s.w $f1, $f1
+ 
+        div.s $f12 $f0, $f1
+        li $v0, 2
         syscall
 
 jr $ra
